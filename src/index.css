@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* Configure dark mode for Tailwind CSS v4 */
+@theme {
+  --color-scheme: light dark;
+}
+
+/* Enable class-based dark mode */
+@variant dark (&:is(.dark, .dark *));
+
+/* Enable dark mode based on class */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+.dark {
+  color-scheme: dark;
+}
