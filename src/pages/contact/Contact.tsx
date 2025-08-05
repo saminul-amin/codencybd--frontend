@@ -24,7 +24,7 @@ interface ContactFormData {
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [, setIsDark] = useState(false);
 
   // Sync with theme changes from Navbar
   useEffect(() => {
