@@ -8,6 +8,7 @@ import {
   Smartphone,
   Users,
 } from "lucide-react";
+import { Link } from "react-router";
 
 const Services = () => {
   const [, setActiveService] = useState(0);
@@ -361,9 +362,11 @@ const Services = () => {
             <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
               Get Started Today
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              View Our Work
-            </button>
+            <Link to="/works">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                View Our Work
+              </button>
+            </Link>
           </div>
         </div>
       </div>
