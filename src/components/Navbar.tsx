@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,11 +66,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center space-x-3">
+            <NavLink to="/" className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                <div className="text-white font-bold text-base">
-                  &lt;/&gt;
-                </div>
+                <div className="text-white font-bold text-base">&lt;/&gt;</div>
               </div>
               <div className="flex flex-col">
                 <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
@@ -78,21 +76,37 @@ const Navbar = () => {
                   <span className="text-slate-800 dark:text-slate-100">BD</span>
                 </span>
               </div>
-            </Link>
+            </NavLink>
           </div>
 
           {/* Desktop Navigation & Theme Toggle */}
           <div className="hidden md:flex items-center">
             <div className="flex items-baseline space-x-1">
               {navItems.map((item) => (
-                <Link
+                <NavLink
                   key={item.name}
                   to={item.href}
-                  className="relative px-4 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-all duration-200 group"
+                  className={({ isActive }) =>
+                    `relative px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
+                      isActive
+                        ? "text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-slate-800/80"
+                        : "text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400"
+                    }`
+                  }
                 >
-                  {item.name}
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 rounded-full"></span>
-                </Link>
+                  {({ isActive }) => (
+                    <>
+                      {item.name}
+                      <span
+                        className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 rounded-full transition-transform duration-200 ${
+                          isActive
+                            ? "transform scale-x-100"
+                            : "transform scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      ></span>
+                    </>
+                  )}
+                </NavLink>
               ))}
             </div>
 
@@ -148,14 +162,20 @@ const Navbar = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/50 dark:border-slate-700/50">
           {navItems.map((item) => (
-            <Link
+            <NavLink
               key={item.name}
               to={item.href}
-              className="block px-4 py-3 rounded-lg text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-800/80 font-medium transition-all duration-200"
+              className={({ isActive }) =>
+                `block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-slate-800/80"
+                    : "text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-800/80"
+                }`
+              }
               onClick={() => setIsOpen(false)}
             >
               {item.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
       </div>
