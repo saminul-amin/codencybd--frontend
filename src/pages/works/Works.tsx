@@ -1,14 +1,5 @@
 import { useState } from "react";
-import {
-  ExternalLink,
-  Github,
-  Eye,
-  Code,
-  Globe,
-  Users,
-  Calendar,
-  ArrowRight,
-} from "lucide-react";
+import { ExternalLink, Github, Eye, Code, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
 const Works = () => {
@@ -81,17 +72,10 @@ const Works = () => {
     },
   ];
 
-  const stats = [
-    { label: "Team Members", value: "3", icon: Users },
-    { label: "Technologies", value: "10+", icon: Code },
-    { label: "Projects Completed", value: "4", icon: Globe },
-    { label: "Founded", value: "2025", icon: Calendar },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800/50 pt-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24">
+      <section className="relative overflow-hidden pt-16 lg:pt-24">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 dark:from-blue-400/5 dark:to-purple-400/5"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -112,28 +96,6 @@ const Works = () => {
               developers ready to bring your digital ideas to life with modern
               technologies and creative solutions.
             </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="group relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10"
-              >
-                <div className="flex items-center space-x-3 mb-2">
-                  <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 rounded-lg text-white group-hover:scale-110 transition-transform duration-300">
-                    <stat.icon className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -321,11 +283,11 @@ const Works = () => {
             Let's discuss how we can help bring your digital vision to life
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg">
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg cursor-pointer">
               Start a Project
             </button>
             <Link to="/services">
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors cursor-pointer">
                 View Our Services
               </button>
             </Link>

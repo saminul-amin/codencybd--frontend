@@ -7,12 +7,13 @@ import {
   CheckCircle,
   ExternalLink,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const ServicesPreview = () => {
   const [inView, setInView] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -192,9 +193,10 @@ const ServicesPreview = () => {
                 </div>
 
                 {/* Hover reveal button */}
-                <div className="absolute bottom-6 left-8 right-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute pointer-events-auto z-10 bottom-6 left-8 right-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <button
-                    className={`w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r ${service.gradient} text-white px-4 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300`}
+                    onClick={() => navigate("/services")}
+                    className={`w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r ${service.gradient} text-white px-4 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300 cursor-pointer`}
                   >
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4" />

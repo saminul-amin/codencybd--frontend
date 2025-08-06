@@ -39,17 +39,17 @@ const Footer = () => {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/works" },
-    { name: "Our Team", href: "/team" },
+    { name: "Our Team", href: "/works" },
     { name: "Contact", href: "/contact" },
   ];
 
   const services = [
-    { name: "Web Development", href: "/services/web" },
-    { name: "Mobile Apps", href: "/services/mobile" },
-    { name: "UI/UX Design", href: "/services/design" },
-    { name: "E-commerce", href: "/services/ecommerce" },
-    { name: "Digital Marketing", href: "/services/marketing" },
-    { name: "Consulting", href: "/services/consulting" },
+    { name: "Web Development", href: "/services" },
+    { name: "Mobile Apps", href: "/services" },
+    { name: "UI/UX Design", href: "/services" },
+    { name: "E-commerce", href: "/services" },
+    { name: "Digital Marketing", href: "/services" },
+    { name: "Consulting", href: "/services" },
   ];
 
   const socialLinks = [
@@ -57,17 +57,17 @@ const Footer = () => {
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: "https://github.com/saminul-amin", label: "GitHub" },
   ];
 
   const contactInfo = [
     {
       icon: MapPin,
-      text: "Sylhet, Bangladesh",
+      text: "Dhaka, Bangladesh",
     },
     {
       icon: Phone,
-      text: "+880 1700-000000",
+      text: "+880 1326 874 247",
     },
     {
       icon: Mail,
@@ -75,7 +75,7 @@ const Footer = () => {
     },
     {
       icon: Globe,
-      text: "www.codencybd.com",
+      text: "www.codencybd.web.app",
     },
   ];
 

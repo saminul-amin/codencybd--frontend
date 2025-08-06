@@ -1,18 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import {
   Users,
-  Code,
-  Globe,
-  Calendar,
   Award,
   Clock,
   Heart,
   Zap,
 } from "lucide-react";
+import { Link } from "react-router";
 
-const StatsSection = ({  }) => {
+const StatsSection = ({}) => {
   const [inView, setInView] = useState(false);
-  const [countUp, setCountUp] = useState(false);
+  const [, setCountUp] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -32,45 +30,6 @@ const StatsSection = ({  }) => {
 
     return () => observer.disconnect();
   }, []);
-
-  const stats = [
-    {
-      id: 1,
-      label: "Team Members",
-      value: "3",
-      icon: Users,
-      description: "Passionate developers ready to serve",
-      gradient: "from-blue-500 to-blue-600",
-      delay: "0ms",
-    },
-    {
-      id: 2,
-      label: "Technologies",
-      value: "10+",
-      icon: Code,
-      description: "Modern tech stack and frameworks",
-      gradient: "from-purple-500 to-purple-600",
-      delay: "100ms",
-    },
-    {
-      id: 3,
-      label: "Projects Ready",
-      value: "4",
-      icon: Globe,
-      description: "Portfolio projects showcasing our skills",
-      gradient: "from-emerald-500 to-emerald-600",
-      delay: "200ms",
-    },
-    {
-      id: 4,
-      label: "Founded",
-      value: "2025",
-      icon: Calendar,
-      description: "Fresh start with modern approaches",
-      gradient: "from-orange-500 to-orange-600",
-      delay: "300ms",
-    },
-  ];
 
   const achievements = [
     {
@@ -109,7 +68,7 @@ const StatsSection = ({  }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
-          className={`text-center mb-20 transform transition-all duration-1000 ${
+          className={`text-center mb-20 transform transition-all duration-500 ${
             inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -134,59 +93,12 @@ const StatsSection = ({  }) => {
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20">
-          {stats.map((stat) => (
-            <div
-              key={stat.id}
-              className={`group relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 transform hover:scale-105 ${
-                inView
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-              style={{ transitionDelay: stat.delay }}
-            >
-              <div className="text-center">
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-2xl text-white mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                >
-                  <stat.icon className="w-8 h-8" />
-                </div>
-
-                <div
-                  className={`text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-2 transition-all duration-1000 ${
-                    countUp ? "scale-100" : "scale-75"
-                  }`}
-                >
-                  {stat.value}
-                </div>
-
-                <div className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-2">
-                  {stat.label}
-                </div>
-
-                <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {stat.description}
-                </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div
-                className={`absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br ${stat.gradient} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
-              ></div>
-              <div
-                className={`absolute -bottom-2 -left-2 w-8 h-8 bg-gradient-to-br ${stat.gradient} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
-              ></div>
-            </div>
-          ))}
-        </div>
-
         {/* Achievements Section */}
         <div
-          className={`transform transition-all duration-1000 ${
+          className={`transform transition-all duration-500 ${
             inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
-          style={{ transitionDelay: "500ms" }}
+          style={{ transitionDelay: "300ms" }}
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
@@ -229,10 +141,10 @@ const StatsSection = ({  }) => {
 
         {/* Call to Action */}
         <div
-          className={`text-center mt-16 transform transition-all duration-1000 ${
+          className={`text-center mt-16 transform transition-all duration-500 ${
             inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
-          style={{ transitionDelay: "800ms" }}
+          style={{ transitionDelay: "500ms" }}
         >
           <div className="p-8 bg-gradient-to-br from-blue-50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-3xl border border-blue-200/50 dark:border-blue-700/30 max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-4">
@@ -243,10 +155,12 @@ const StatsSection = ({  }) => {
               solutions together. Your project could be our next success story!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="group bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-                <span>Start Your Project</span>
-                <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              </button>
+              <Link to="/contact">
+                <button className="group bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 cursor-pointer">
+                  <span>Start Your Project</span>
+                  <Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

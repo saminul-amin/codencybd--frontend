@@ -9,6 +9,7 @@ import {
   Award,
   Heart,
 } from "lucide-react";
+import "./TestimonialsSection.css";
 
 const TestimonialsSection = () => {
   const [inView, setInView] = useState(false);
@@ -137,252 +138,162 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <>
-      <style>{`
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes floatAnimation {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        .testimonial-enter {
-          animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .testimonial-content-enter {
-          animation: slideInLeft 0.6s ease-out 0.1s forwards;
-          opacity: 0;
-        }
-
-        .testimonial-profile-enter {
-          animation: slideInRight 0.6s ease-out 0.2s forwards;
-          opacity: 0;
-        }
-
-        .testimonial-quote-enter {
-          animation: scaleIn 0.4s ease-out 0.3s forwards;
-          opacity: 0;
-        }
-
-        .star-animation {
-          animation: scaleIn 0.3s ease-out forwards;
-          opacity: 0;
-        }
-
-        .testimonial-transition {
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .floating-icon {
-          animation: floatAnimation 3s ease-in-out infinite;
-        }
-      `}</style>
-
-      <section
-        ref={sectionRef}
-        className="py-20 lg:py-32 bg-white dark:bg-slate-900"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div
-            className={`text-center mb-20 transform transition-all duration-1000 ${
-              inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Star className="h-4 w-4" />
-              <span>Client Testimonials</span>
-            </div>
-
-            <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-8">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent">
-                What Our
-              </span>{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                Clients Say
-              </span>
-            </h2>
-
-            <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Early feedback from our clients shows the impact of our fresh
-              approach to digital solutions.
-            </p>
+    <section
+      ref={sectionRef}
+      className="py-20 lg:py-32 bg-white dark:bg-slate-900"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div
+          className={`text-center mb-20 transform transition-all duration-1000 ${
+            inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <div className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Star className="h-4 w-4" />
+            <span>Client Testimonials</span>
           </div>
 
-          {/* Featured Testimonial */}
-          <div
-            className={`mb-16 transform transition-all duration-1000 ${
-              inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            <div className="relative max-w-5xl mx-auto">
-              <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 dark:from-slate-800/50 dark:to-slate-700/50 rounded-3xl p-8 lg:p-12 border border-slate-200/50 dark:border-slate-700/50 shadow-xl overflow-hidden">
-                {/* Animated testimonial content */}
-                <div
-                  key={currentTestimonial}
-                  className={`testimonial-enter ${
-                    isTransitioning
-                      ? "testimonial-transition opacity-0 scale-95"
-                      : "opacity-100 scale-100"
-                  }`}
-                >
-                  {/* Quote Icon */}
-                  <div
-                    className={`testimonial-quote-enter inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${testimonials[currentTestimonial].gradient} rounded-2xl text-white mb-8 shadow-lg transform transition-all duration-300 hover:scale-110 floating-icon`}
-                  >
-                    <Quote className="w-8 h-8" />
-                  </div>
+          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 dark:from-slate-100 dark:via-blue-300 dark:to-slate-100 bg-clip-text text-transparent">
+              What Our
+            </span>{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+              Clients Say
+            </span>
+          </h2>
 
-                  {/* Testimonial Content */}
-                  <div className="text-center">
-                    <div className={`testimonial-content-enter`}>
-                      {/* Rating */}
-                      <div className="flex items-center justify-center space-x-1 mb-8">
-                        {[
-                          ...Array(testimonials[currentTestimonial].rating),
-                        ].map((_, i) => (
+          <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Early feedback from our clients shows the impact of our fresh
+            approach to digital solutions.
+          </p>
+        </div>
+
+        {/* Featured Testimonial */}
+        <div
+          className={`mb-16 transform transition-all duration-1000 ${
+            inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+          style={{ transitionDelay: "200ms" }}
+        >
+          <div className="relative max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 dark:from-slate-800/50 dark:to-slate-700/50 rounded-3xl p-8 lg:p-12 border border-slate-200/50 dark:border-slate-700/50 shadow-xl overflow-hidden">
+              {/* Animated testimonial content */}
+              <div
+                key={currentTestimonial}
+                className={`testimonial-enter ${
+                  isTransitioning
+                    ? "testimonial-transition opacity-0 scale-95"
+                    : "opacity-100 scale-100"
+                }`}
+              >
+                {/* Quote Icon */}
+                <div
+                  className={`testimonial-quote-enter inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${testimonials[currentTestimonial].gradient} rounded-2xl text-white mb-8 shadow-lg transform transition-all duration-300 hover:scale-110 floating-icon`}
+                >
+                  <Quote className="w-8 h-8" />
+                </div>
+
+                {/* Testimonial Content */}
+                <div className="text-center">
+                  <div className={`testimonial-content-enter`}>
+                    {/* Rating */}
+                    <div className="flex items-center justify-center space-x-1 mb-8">
+                      {[...Array(testimonials[currentTestimonial].rating)].map(
+                        (_, i) => (
                           <Star
                             key={`${currentTestimonial}-star-${i}`}
                             className="w-7 h-7 text-yellow-400 fill-current star-animation transform transition-all duration-300 hover:scale-125"
                             style={{ animationDelay: `${0.4 + i * 0.1}s` }}
                           />
-                        ))}
+                        )
+                      )}
+                    </div>
+
+                    {/* Review Text */}
+                    <blockquote className="text-xl lg:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed mb-10 font-medium italic max-w-4xl mx-auto">
+                      "{testimonials[currentTestimonial].content}"
+                    </blockquote>
+
+                    {/* Client Info Section */}
+                    <div className="space-y-6">
+                      {/* Client Avatar with Icon */}
+                      <div className="flex justify-center">
+                        <div
+                          className={`relative w-20 h-20 bg-gradient-to-br ${testimonials[currentTestimonial].gradient} rounded-full flex items-center justify-center text-white shadow-xl transform transition-all duration-300 hover:scale-110 floating-icon`}
+                          style={{ animationDelay: "1s" }}
+                        >
+                          {getIcon(testimonials[currentTestimonial].icon)}
+                          <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
+                        </div>
                       </div>
 
-                      {/* Review Text */}
-                      <blockquote className="text-xl lg:text-2xl text-slate-700 dark:text-slate-200 leading-relaxed mb-10 font-medium italic max-w-4xl mx-auto">
-                        "{testimonials[currentTestimonial].content}"
-                      </blockquote>
+                      {/* Client Details */}
+                      <div className="space-y-2">
+                        <h4 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                          {testimonials[currentTestimonial].name}
+                        </h4>
+                        <p className="text-lg text-slate-600 dark:text-slate-300">
+                          {testimonials[currentTestimonial].role}
+                        </p>
+                        <p className="text-slate-500 dark:text-slate-400">
+                          {testimonials[currentTestimonial].company}
+                        </p>
+                      </div>
 
-                      {/* Client Info Section */}
-                      <div className="space-y-6">
-                        {/* Client Avatar with Icon */}
-                        <div className="flex justify-center">
-                          <div
-                            className={`relative w-20 h-20 bg-gradient-to-br ${testimonials[currentTestimonial].gradient} rounded-full flex items-center justify-center text-white shadow-xl transform transition-all duration-300 hover:scale-110 floating-icon`}
-                            style={{ animationDelay: "1s" }}
-                          >
-                            {getIcon(testimonials[currentTestimonial].icon)}
-                            <div className="absolute inset-0 bg-white/20 rounded-full animate-pulse"></div>
-                          </div>
-                        </div>
-
-                        {/* Client Details */}
-                        <div className="space-y-2">
-                          <h4 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                            {testimonials[currentTestimonial].name}
-                          </h4>
-                          <p className="text-lg text-slate-600 dark:text-slate-300">
-                            {testimonials[currentTestimonial].role}
-                          </p>
-                          <p className="text-slate-500 dark:text-slate-400">
-                            {testimonials[currentTestimonial].company}
-                          </p>
-                        </div>
-
-                        {/* Project Tag */}
-                        <div className="flex justify-center">
-                          <div className="inline-flex items-center space-x-2 bg-white/70 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 px-6 py-3 rounded-full text-sm border border-slate-200/50 dark:border-slate-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-md">
-                            <Building className="w-4 h-4" />
-                            <span>
-                              Project:{" "}
-                              {testimonials[currentTestimonial].project}
-                            </span>
-                          </div>
+                      {/* Project Tag */}
+                      <div className="flex justify-center">
+                        <div className="inline-flex items-center space-x-2 bg-white/70 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 px-6 py-3 rounded-full text-sm border border-slate-200/50 dark:border-slate-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-md">
+                          <Building className="w-4 h-4" />
+                          <span>
+                            Project: {testimonials[currentTestimonial].project}
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Navigation */}
-                <div className="flex items-center justify-between mt-12 pt-8 border-t border-slate-200/50 dark:border-slate-700/50">
-                  <button
-                    onClick={handlePrev}
-                    disabled={isTransitioning}
-                    className="flex items-center justify-center w-12 h-12 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
+              {/* Navigation */}
+              <div className="flex items-center justify-between mt-12 pt-8 border-t border-slate-200/50 dark:border-slate-700/50">
+                <button
+                  onClick={handlePrev}
+                  disabled={isTransitioning}
+                  className="flex items-center justify-center w-12 h-12 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
 
-                  {/* Dots Indicator */}
-                  <div className="flex items-center space-x-3">
-                    {testimonials.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleDotClick(index)}
-                        disabled={isTransitioning}
-                        className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 disabled:cursor-not-allowed ${
-                          index === currentTestimonial
-                            ? "bg-blue-600 dark:bg-blue-400 scale-125 shadow-lg"
-                            : "bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"
-                        }`}
-                      />
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={handleNext}
-                    disabled={isTransitioning}
-                    className="flex items-center justify-center w-12 h-12 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
+                {/* Dots Indicator */}
+                <div className="flex items-center space-x-3">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleDotClick(index)}
+                      disabled={isTransitioning}
+                      className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 cursor-pointer disabled:cursor-not-allowed ${
+                        index === currentTestimonial
+                          ? "bg-blue-600 dark:bg-blue-400 scale-125 shadow-lg"
+                          : "bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500"
+                      }`}
+                    />
+                  ))}
                 </div>
+
+                <button
+                  onClick={handleNext}
+                  disabled={isTransitioning}
+                  className="flex items-center justify-center w-12 h-12 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 shadow-lg cursor-pointer hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

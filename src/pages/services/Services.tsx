@@ -161,7 +161,6 @@ const Services = () => {
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
               }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
               onMouseEnter={() => setActiveService(index)}
             >
               <div
@@ -265,7 +264,6 @@ const Services = () => {
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
-                style={{ transitionDelay: `${(index + 3) * 200}ms` }}
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 text-white rounded-2xl mb-4 shadow-lg">
                   {item.icon}
@@ -359,11 +357,11 @@ const Services = () => {
             presence
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
               Get Started Today
             </button>
             <Link to="/works">
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
                 View Our Work
               </button>
             </Link>
