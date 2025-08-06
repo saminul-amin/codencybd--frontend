@@ -1,12 +1,11 @@
 import {
-  Star,
-  Quote,
   ArrowRight,
   Users,
   Trophy,
   Globe,
   Briefcase,
 } from "lucide-react";
+import { Link } from "react-router";
 
 const Clients = () => {
   const stats = [
@@ -36,18 +35,18 @@ const Clients = () => {
     },
   ];
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`w-4 h-4 ${
-          i < rating
-            ? "text-yellow-400 fill-current"
-            : "text-slate-300 dark:text-slate-600"
-        }`}
-      />
-    ));
-  };
+  // const renderStars = (rating: number) => {
+  //   return Array.from({ length: 5 }, (_, i) => (
+  //     <Star
+  //       key={i}
+  //       className={`w-4 h-4 ${
+  //         i < rating
+  //           ? "text-yellow-400 fill-current"
+  //           : "text-slate-300 dark:text-slate-600"
+  //       }`}
+  //     />
+  //   ));
+  // };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pt-20">
@@ -143,7 +142,7 @@ const Clients = () => {
       </section>
 
       {/* Future Testimonials Section */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      {/* <section className="py-20 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-6">
@@ -264,7 +263,7 @@ const Clients = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 dark:from-blue-700 dark:to-blue-900">
@@ -278,13 +277,17 @@ const Clients = () => {
             establish a long-term partnership.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg cursor-pointer hover:shadow-xl group">
-              Start Your Project
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-            </button>
-            <button className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all cursor-pointer duration-200">
-              View Our Portfolio
-            </button>
+            <Link to="/contact">
+              <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg cursor-pointer hover:shadow-xl group">
+                Start Your Project
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+            </Link>
+            <Link to="/works">
+              <button className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all cursor-pointer duration-200">
+                View Our Portfolio
+              </button>
+            </Link>
           </div>
         </div>
       </section>

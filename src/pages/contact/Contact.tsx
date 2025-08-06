@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./Contact.css";
+import emailjs from "@emailjs/browser";
 import {
   Mail,
   Phone,
   MapPin,
   Send,
   CheckCircle,
-  Globe,
   MessageSquare,
   Clock,
   Users,
@@ -24,7 +24,14 @@ interface ContactFormData {
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [, setIsDark] = useState(false);
+
+  // Initialize EmailJS
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+  }, []);
 
   // Sync with theme changes from Navbar
   useEffect(() => {
@@ -55,42 +62,68 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Form submitted:", data);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    reset();
+    setSubmitError(null);
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      // Create template parameters for EmailJS
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone || "Not provided",
+        subject: data.subject,
+        message: data.message,
+        to_name: "Codency BD Team",
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      console.log("Email sent successfully:", result);
+      setIsSubmitted(true);
+      reset();
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setSubmitError(
+        "Failed to send message. Please try again or contact us directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@codencybd.com",
+      details: "codencybd@gmail.com",
       subtitle: "We'll respond within 24 hours",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+880 1700-000000",
-      subtitle: "Mon-Fri 9AM-6PM BST",
+      details: "+880 1858 381 111",
+      subtitle: "Mon-Sun 9AM-9PM BST",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: "Sylhet, Bangladesh",
+      details: "Dhaka, Bangladesh",
       subtitle: "Available for meetings",
     },
-    {
-      icon: Globe,
-      title: "Follow Us",
-      details: "Social Media",
-      subtitle: "Stay connected with updates",
-    },
+    // {
+    //   icon: Globe,
+    //   title: "Follow Us",
+    //   details: "Social Media",
+    //   subtitle: "Stay connected with updates",
+    // },
   ];
 
   const stats = [
@@ -187,6 +220,17 @@ const Contact = () => {
                   <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                   <span className="text-green-700 dark:text-green-300 font-medium">
                     Message sent successfully! We'll get back to you soon.
+                  </span>
+                </div>
+              )}
+
+              {submitError && (
+                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-600/50 rounded-xl flex items-center space-x-3">
+                  <div className="h-5 w-5 text-red-600 dark:text-red-400">
+                    ⚠
+                  </div>
+                  <span className="text-red-700 dark:text-red-300 font-medium">
+                    {submitError}
                   </span>
                 </div>
               )}

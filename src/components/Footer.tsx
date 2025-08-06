@@ -67,15 +67,15 @@ const Footer = () => {
     },
     {
       icon: Phone,
-      text: "+880 1326 874 247",
+      text: "+880 1858 381 111",
     },
     {
       icon: Mail,
-      text: "hello@codencybd.com",
+      text: "codencybd@gmail.com",
     },
     {
       icon: Globe,
-      text: "www.codencybd.web.app",
+      text: "codencybd.web.app",
     },
   ];
 

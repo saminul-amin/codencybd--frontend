@@ -48,7 +48,7 @@ const ServicesPreview = () => {
       idealFor: ["Architects", "Engineers", "Doctors", "Artists"],
       gradient: "from-blue-500 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
-      darkBgGradient: "from-blue-900/20 to-blue-800/20",
+      darkBgGradient: "dark:from-blue-900/20 dark:to-blue-800/20",
     },
     {
       id: 2,
@@ -65,7 +65,7 @@ const ServicesPreview = () => {
       idealFor: ["Coaching Centers", "Clinics", "Shops", "NGOs"],
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
-      darkBgGradient: "from-purple-900/20 to-purple-800/20",
+      darkBgGradient: "dark:from-purple-900/20 dark:to-purple-800/20",
     },
     {
       id: 3,
@@ -82,7 +82,7 @@ const ServicesPreview = () => {
       idealFor: ["Pharmacies", "Boutiques", "Small Businesses"],
       gradient: "from-emerald-500 to-emerald-600",
       bgGradient: "from-emerald-50 to-emerald-100",
-      darkBgGradient: "from-emerald-900/20 to-emerald-800/20",
+      darkBgGradient: "dark:from-emerald-900/20 dark:to-emerald-800/20",
     },
   ];
 
@@ -138,7 +138,7 @@ const ServicesPreview = () => {
               onMouseEnter={() => setActiveService(index)}
             >
               <div
-                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.bgGradient} dark:${service.darkBgGradient} p-8 h-full border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 backdrop-blur-sm pb-16`}
+                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.bgGradient} ${service.darkBgGradient} p-8 h-full border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 backdrop-blur-sm pb-16`}
               >
                 {/* Floating icon */}
                 <div
@@ -237,12 +237,12 @@ const ServicesPreview = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/services">
-                <button className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="group inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer">
                   <span>View All Services</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </Link>
-              <button className="inline-flex items-center space-x-2 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <button className="inline-flex items-center space-x-2 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer">
                 <span>Get Started</span>
                 <ArrowRight className="w-4 h-4" />
               </button>

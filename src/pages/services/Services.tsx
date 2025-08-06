@@ -42,7 +42,7 @@ const Services = () => {
       ],
       gradient: "from-blue-500 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
-      darkBgGradient: "from-blue-900/20 to-blue-800/20",
+      darkBgGradient: "dark:from-blue-900/20 dark:to-blue-800/20",
     },
     {
       id: 2,
@@ -67,7 +67,7 @@ const Services = () => {
       ],
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
-      darkBgGradient: "from-purple-900/20 to-purple-800/20",
+      darkBgGradient: "dark:from-purple-900/20 dark:to-purple-800/20",
     },
     {
       id: 3,
@@ -92,7 +92,7 @@ const Services = () => {
       ],
       gradient: "from-emerald-500 to-emerald-600",
       bgGradient: "from-emerald-50 to-emerald-100",
-      darkBgGradient: "from-emerald-900/20 to-emerald-800/20",
+      darkBgGradient: "dark:from-emerald-900/20 dark:to-emerald-800/20",
     },
   ];
 
@@ -164,7 +164,7 @@ const Services = () => {
               onMouseEnter={() => setActiveService(index)}
             >
               <div
-                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.bgGradient} dark:${service.darkBgGradient} p-8 h-full border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col`}
+                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${service.bgGradient} ${service.darkBgGradient} p-8 h-full border border-slate-200/50 dark:border-slate-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col`}
               >
                 {/* Icon and Title */}
                 <div
@@ -357,9 +357,11 @@ const Services = () => {
             presence
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
-              Get Started Today
-            </button>
+            <Link to="/contact">
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
+                Get Started Today
+              </button>
+            </Link>
             <Link to="/works">
               <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
                 View Our Work

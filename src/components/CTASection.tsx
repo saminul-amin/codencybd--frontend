@@ -9,11 +9,12 @@ import {
   Clock,
   Rocket,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const CTASection = () => {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,6 +40,7 @@ const CTASection = () => {
       description: "Let's discuss your project ideas",
       action: "Chat Now",
       gradient: "from-blue-500 to-blue-600",
+      buttonAction: () => window.open("https://wa.me/8801858381111", "_blank"),
     },
     {
       icon: Calendar,
@@ -46,6 +48,7 @@ const CTASection = () => {
       description: "Book a free consultation call",
       action: "Book Call",
       gradient: "from-purple-500 to-purple-600",
+      buttonAction: () => window.open("https://wa.me/8801858381111", "_blank"),
     },
     {
       icon: Mail,
@@ -53,6 +56,7 @@ const CTASection = () => {
       description: "Detailed project requirements",
       action: "Email Us",
       gradient: "from-emerald-500 to-emerald-600",
+      buttonAction: () => navigate("/contact"),
     },
   ];
 
@@ -139,7 +143,10 @@ const CTASection = () => {
                 {method.description}
               </p>
 
-              <button className="w-full bg-slate-100 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 border border-slate-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 cursor-pointer">
+              <button
+                onClick={method.buttonAction}
+                className="w-full bg-slate-100 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 border border-slate-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 cursor-pointer"
+              >
                 {method.action}
               </button>
 
@@ -175,7 +182,9 @@ const CTASection = () => {
                     className="flex items-center space-x-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200/50 dark:border-slate-600/50 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300"
                   >
                     <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                    <span className="text-slate-700 dark:text-slate-300 font-medium">{benefit}</span>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium">
+                      {benefit}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -200,8 +209,12 @@ const CTASection = () => {
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 dark:text-slate-100">Email Us</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">info@codencybd.com</div>
+                    <div className="font-semibold text-slate-900 dark:text-slate-100">
+                      Email Us
+                    </div>
+                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                      info@codencybd.com
+                    </div>
                   </div>
                 </div>
 
@@ -210,8 +223,12 @@ const CTASection = () => {
                     <Phone className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 dark:text-slate-100">Call Us</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">+880 1326 874 247</div>
+                    <div className="font-semibold text-slate-900 dark:text-slate-100">
+                      Call Us
+                    </div>
+                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                      +880 1326 874 247
+                    </div>
                   </div>
                 </div>
 
@@ -220,8 +237,12 @@ const CTASection = () => {
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 dark:text-slate-100">Location</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Dhaka, Bangladesh</div>
+                    <div className="font-semibold text-slate-900 dark:text-slate-100">
+                      Location
+                    </div>
+                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                      Dhaka, Bangladesh
+                    </div>
                   </div>
                 </div>
 
@@ -233,7 +254,9 @@ const CTASection = () => {
                     <div className="font-semibold text-slate-900 dark:text-slate-100">
                       Response Time
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">Within 24 hours</div>
+                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                      Within 24 hours
+                    </div>
                   </div>
                 </div>
               </div>
